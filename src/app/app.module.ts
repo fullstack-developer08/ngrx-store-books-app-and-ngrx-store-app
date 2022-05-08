@@ -1,25 +1,25 @@
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
-import { StoreModule } from '@ngrx/store';
-import { collectionReducer } from './store/reducers/collection.reducer';
-import { booksReducer } from './store/reducers/books.reducer';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookCollectionComponent } from './book-collection/book-collection.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from "@ngrx/store";
+import { collectionReducer } from "./store/reducers/collection.reducer";
+import { booksReducer } from "./store/reducers/books.reducer";
+import { BookListComponent } from "./book-list/book-list.component";
+import { BookCollectionComponent } from "./book-collection/book-collection.component";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import {
   routerReducer,
   RouterState,
-  StoreRouterConnectingModule,
-} from '@ngrx/router-store';
-import { CustomSerializer } from './store/custom-serializer';
-import { AddressComponent } from './address/address.component';
-import { HomeComponent } from './home/home.component';
-import { routesReducer } from './store/reducers/routes.reducer';
+  StoreRouterConnectingModule
+} from "@ngrx/router-store";
+import { CustomSerializer } from "./store/custom-serializer";
+import { AddressComponent } from "./address/address.component";
+import { HomeComponent } from "./home/home.component";
+import { routesReducer } from "./store/reducers/routes.reducer";
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { routesReducer } from './store/reducers/routes.reducer';
     BookListComponent,
     BookCollectionComponent,
     AddressComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,16 +36,15 @@ import { routesReducer } from './store/reducers/routes.reducer';
       books: booksReducer,
       collection: collectionReducer,
       router: routerReducer,
-      routes: routesReducer,
+      routes: routesReducer
     }),
     HttpClientModule,
     StoreDevtoolsModule.instrument({}),
     StoreRouterConnectingModule.forRoot({
-      serializer: CustomSerializer,
-      routerState: RouterState.Full,
-    }),
+      serializer: CustomSerializer
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
